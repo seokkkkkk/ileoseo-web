@@ -63,10 +63,7 @@ export default function Home() {
 
                 <ul className="soft-divider">
                     <li className="flex items-center justify-between py-3">
-                        <Link
-                            href="/notices/sample"
-                            className="hover:underline"
-                        >
+                        <Link href="/notices" className="hover:underline">
                             CMS후원 자동이체 양식
                         </Link>
                     </li>
