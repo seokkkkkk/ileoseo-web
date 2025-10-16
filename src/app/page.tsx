@@ -1,7 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import { client } from "@/sanity/lib/client";
+import { NOTICE_LATEST_LIST_QUERY } from "@/sanity/lib/queries/notice";
 
-export default function Home() {
+export default async function Home() {
+    const notices = await client
+        .fetch(NOTICE_LATEST_LIST_QUERY)
+        .catch(() => []);
+
+    console.log(notices.map((notice: any) => notice.slug));
+
     return (
         <>
             <section className="card soft-ring px-6 py-10 md:px-10 md:py-14">
@@ -50,25 +58,41 @@ export default function Home() {
             </section>
 
             {/* 공지사항 */}
-            <section className="mt-12 card soft-ring p-6">
-                <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-xl font-bold">공지사항</h2>
-                    <Link
-                        href="/notices"
-                        className="text-sm text-brand-green hover:underline"
-                    >
-                        더보기
-                    </Link>
-                </div>
-
-                <ul className="soft-divider">
-                    <li className="flex items-center justify-between py-3">
-                        <Link href="/notices" className="hover:underline">
-                            CMS후원 자동이체 양식
+            {notices.length > 0 && (
+                <section className="mt-12 card soft-ring p-6">
+                    <div className="flex items-center justify-between mb-4">
+                        <h2 className="text-xl font-bold">공지사항</h2>
+                        <Link
+                            href="/notices"
+                            className="text-sm text-brand-green hover:underline"
+                        >
+                            더보기
                         </Link>
-                    </li>
-                </ul>
-            </section>
+                    </div>
+
+                    <ul className="soft-divider">
+                        {notices.map((notice: any) => (
+                            <li key={notice.slug} className="py-3 w-full">
+                                <Link
+                                    href={`/notices/${notice.slug}`}
+                                    className="w-full flex items-center justify-between"
+                                >
+                                    <span>{notice.title}</span>
+                                    <span className="text-sm text-brand-green">
+                                        {new Date(
+                                            notice.publishedAt
+                                        ).toLocaleDateString("ko-KR", {
+                                            year: "numeric",
+                                            month: "long",
+                                            day: "numeric",
+                                        })}
+                                    </span>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            )}
         </>
     );
 }

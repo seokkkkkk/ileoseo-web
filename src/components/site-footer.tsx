@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AdminTrigger from "./admin-trigger";
 
 export function Footer() {
     return (
@@ -52,10 +53,12 @@ export function Footer() {
                     </p>
                 </div>
             </div>
-            <div className="soft-ring py-4 text-center text-xs text-neutral-500">
-                © {new Date().getFullYear()} (사)대전실업극복시민연대
-                일어서는사람들. All rights reserved.
-            </div>
+            <AdminTrigger to="/admin/structure/notice">
+                <div className="soft-ring py-4 text-center text-xs text-neutral-500">
+                    © {new Date().getFullYear()} (사)대전실업극복시민연대
+                    일어서는사람들. All rights reserved.
+                </div>
+            </AdminTrigger>
         </footer>
     );
 }
