@@ -17,10 +17,16 @@ export const metadata: Metadata = {
         "후원안내",
     ],
     metadataBase: new URL("https://ileoseo.vercel.app"),
+    icons: {
+        icon: "/favicon.ico",
+        shortcut: "/favicon.ico",
+        apple: "/favicon.ico",
+    },
     openGraph: {
         title: "대전실업극복시민연대 일어서는사람들",
         description: "지역과 함께 다시 일어서는 사회",
         url: "https://ileoseo.vercel.app",
+        siteName: "대전실업극복시민연대 일어서는사람들",
         images: [
             {
                 url: "/images/og-cover.png",
