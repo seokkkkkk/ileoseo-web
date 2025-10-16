@@ -10,6 +10,7 @@
         "format": "biome format --write"
     },
     "dependencies": {
+        "@next/third-parties": "^15.5.5",
         "@portabletext/react": "^4.0.3",
         "@sanity/client": "^7.12.0",
         "@sanity/image-url": "^1.2.0",

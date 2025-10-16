@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Header } from "@/components/site-header";
 import { Footer } from "@/components/site-footer";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
     title: "대전실업극복시민연대 일어서는사람들",
@@ -76,6 +77,10 @@ export default function RootLayout({
                     <div className="container">{children}</div>
                 </main>
                 <Footer />
+                <GoogleTagManager
+                    gtmId={process.env.NEXT_PUBLIC_GTM_ID || ""}
+                />
+                <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
             </body>
         </html>
     );
