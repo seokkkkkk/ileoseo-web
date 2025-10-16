@@ -6,8 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: "*",
             allow: "/",
         },
-        sitemap: `${
-            process.env.NEXT_PUBLIC_HOST || "http://localhost:3000"
-        }/sitemap.xml`,
+        sitemap: "https://ileoseo.vercel.app/sitemap.xml",
     };
 }

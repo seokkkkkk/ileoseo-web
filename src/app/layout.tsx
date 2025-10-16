@@ -16,13 +16,11 @@ export const metadata: Metadata = {
         "취약계층",
         "후원안내",
     ],
-    metadataBase: new URL(
-        process.env.NEXT_PUBLIC_HOST || "http://localhost:3000"
-    ),
+    metadataBase: new URL("https://ileoseo.vercel.app"),
     openGraph: {
         title: "대전실업극복시민연대 일어서는사람들",
         description: "지역과 함께 다시 일어서는 사회",
-        url: process.env.NEXT_PUBLIC_HOST || "http://localhost:3000",
+        url: "https://ileoseo.vercel.app",
         images: [
             {
                 url: "/images/og-cover.png",
@@ -47,7 +45,7 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-    const base = process.env.NEXT_PUBLIC_HOST || "http://localhost:3000";
+    const base = "https://ileoseo.vercel.app";
     return (
         <html lang="ko">
             <head>
