@@ -31,13 +31,13 @@ export default function ContactPage() {
                 </p>
                 <div className="w-full h-[400px] overflow-hidden rounded-xl">
                     <iframe
-                        title="대전실업극복시민연대 일어서는사람들 위치"
-                        src="https://naver.me/5ashIs34"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d534.1125422331835!2d127.3951525739114!3d36.33588302038785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3565494f982e732d%3A0xcdd5adc1a6e3a96d!2z64yA7KCE6rSR7Jet7IucIOyEnOq1rCDqs4Tro6HroZwgNjc2!5e0!3m2!1sko!2skr!4v1760589041284!5m2!1sko!2skr"
                         width="100%"
                         height="400"
                         style={{ border: 0 }}
                         allowFullScreen
                         loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
                 </div>
             </section>
