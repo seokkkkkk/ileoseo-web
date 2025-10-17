@@ -44,6 +44,9 @@ export const metadata: Metadata = {
         description: "지역과 함께 다시 일어서는 사회",
         images: ["/images/og-cover.png"],
     },
+
+    applicationName: "대전실업극복시민연대 일어서는사람들",
+    robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -61,7 +64,11 @@ export default function RootLayout({
                         __html: JSON.stringify({
                             "@context": "https://schema.org",
                             "@type": "NGO",
-                            name: "(사)대전실업극복시민연대 일어서는사람들",
+                            name: "대전실업극복시민연대 일어서는사람들",
+                            alternateName: [
+                                "일어서는사람들",
+                                "대전실업극복시민연대",
+                            ],
                             url: base,
                             logo: `${base}/images/og-cover.png`,
                             address: {
