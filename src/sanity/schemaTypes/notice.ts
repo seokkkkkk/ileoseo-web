@@ -68,6 +68,21 @@ export const notice = defineType({
         }),
 
         defineField({
+            name: "files",
+            title: "첨부파일",
+            type: "array",
+            of: [
+                {
+                    type: "file",
+                    options: {
+                        storeOriginalFilename: true,
+                    },
+                    validation: (Rule) => Rule.required().assetRequired(),
+                },
+            ],
+        }),
+
+        defineField({
             name: "body",
             title: "본문",
             type: "array",

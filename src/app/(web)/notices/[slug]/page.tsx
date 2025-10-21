@@ -5,6 +5,7 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
 import { deepDecode } from "@/lib/slug";
+import Attachments from "@/components/attachments";
 
 export const revalidate = 60;
 export const dynamicParams = true; // slug 추가 시 ISR로 처리
@@ -58,6 +59,8 @@ export default async function NoticeDetailPage(props: {
         notFound();
     }
 
+    console.log(detail.files);
+
     return (
         <div className="space-y-10 max-w-3xl mx-auto">
             <article className="w-full max-w-3xl rounded-2xl bg-white shadow-sm ring-1 ring-black/5 p-6 md:p-10">
@@ -108,25 +111,8 @@ export default async function NoticeDetailPage(props: {
                     }}
                 />
 
-                {/* 첨부파일(옵션) */}
                 {detail.files?.length ? (
-                    <section className="mt-8">
-                        <h2 className="font-semibold mb-2">첨부파일</h2>
-                        <ul className="list-disc pl-5 space-y-1">
-                            {detail.files.map((f) => (
-                                <li key={f._key}>
-                                    <a
-                                        className="text-blue-600 underline"
-                                        href={f.url}
-                                        target="_blank"
-                                    >
-                                        {f.url?.split("/").pop() ??
-                                            "파일 다운로드"}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </section>
+                    <Attachments files={detail.files} />
                 ) : null}
             </article>
         </div>
